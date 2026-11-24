@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Danke für deine Bestellung | Söth's Biokiste</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#006000">
+  <link rel="icon" href="assets/logo.webp" type="image/webp">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body class="page-danke">
+
+<main class="thanks">
+  <div class="wrap">
+    <img class="hero__logo" src="assets/logo.webp" width="96" height="96" alt="Söth's Biokiste">
+    <div class="thanks__badge" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="36" height="36"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2Z"/></svg>
+    </div>
+    <h1 class="thanks__title">Deine Bestellung ist eingegangen.</h1>
+    <p class="thanks__nr" id="bestellnummer" hidden>Bestellnummer: <strong></strong></p>
+
+    <h2 class="thanks__sub">So geht es weiter</h2>
+    <ol class="steps">
+      <!-- TODO: Ablauf vom Kunden bestätigen (Bestätigungsmail, Vorlauf bis zur ersten Lieferung) -->
+      <li><strong>Wir melden uns bei dir.</strong> Söth's Biokiste meldet sich kurz bei dir und bestätigt deine Bestellung.</li>
+      <li><strong>Deine erste Kiste kommt.</strong> Wir sagen dir, an welchem Tag wir deine erste Kiste bringen.</li>
+      <li><strong>Jede Woche frisch.</strong> Ab dann kommt deine Kiste jede Woche. Die 6. Kiste ist gratis.</li>
+    </ol>
+
+    <div class="contact">
+      <p class="contact__title">Fragen? Ruf uns an oder schreib uns.</p>
+      <a class="btn btn--outline btn--block" href="tel:+4948478094700">04847 8094700</a>
+      <a class="btn btn--outline btn--block" href="mailto:kontakt@soeths-biokiste.de">kontakt@soeths-biokiste.de</a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <nav aria-label="Rechtliches">
+      <a href="https://soeths-biokiste.de/shop/service/impressum/" target="_blank" rel="noopener">Impressum</a>
+      <a href="https://soeths-biokiste.de/shop/service/datenschutz/" target="_blank" rel="noopener">Datenschutz</a>
+      <a href="https://soeths-biokiste.de/shop/service/agb/" target="_blank" rel="noopener">AGB</a>
+      <button type="button" class="linklike" data-consent-open>Cookie-Einstellungen</button>
+    </nav>
+  </div>
+</footer>
+
+<div class="consent" id="consent" role="dialog" aria-labelledby="consent-title" aria-live="polite" hidden>
+  <div class="consent__inner">
+    <p class="consent__title" id="consent-title">Darf Meta mitmessen?</p>
+    <p class="consent__text">Mit deiner Zustimmung nutzen wir das Meta Pixel, um zu sehen, welche Werbung funktioniert. Ohne Zustimmung bleibt alles aus. Mehr in der <a href="https://soeths-biokiste.de/shop/service/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a>.</p>
+    <div class="consent__actions">
+      <button type="button" class="btn btn--consent" data-consent="denied">Ablehnen</button>
+      <button type="button" class="btn btn--consent" data-consent="granted">Akzeptieren</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

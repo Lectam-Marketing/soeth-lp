@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>5+1 Biokiste: 6 Kisten, nur 5 bezahlen | Söth's Biokiste</title>
+  <meta name="description" content="Bio-Gemüse aus Nordfriesland, jede Woche frisch bis an deine Haustür. Bezahl 5 Kisten, die 6. bekommst du gratis.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#006000">
+  <link rel="icon" href="assets/logo.webp" type="image/webp">
+  <link rel="preload" href="assets/logo.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+<main>
+
+  <!-- 1. Hero -->
+  <header class="hero">
+    <div class="wrap">
+      <img class="hero__logo" src="assets/logo.webp" width="96" height="96" alt="Söth's Biokiste">
+      <p class="hero__claim">Ehrlich. Frisch. Von hier.</p>
+      <h1 class="hero__title">6 Biokisten,<br>nur 5 bezahlen.</h1>
+      <p class="hero__sub">Bio-Gemüse aus Nordfriesland, jede Woche frisch bis an deine Haustür. Die 6. Kiste geht auf uns.</p>
+      <a class="btn btn--primary btn--block" href="#kiste">Jetzt Kiste wählen</a>
+    </div>
+  </header>
+
+  <form id="bestellung" class="order" action="/.netlify/functions/submit" method="post" novalidate>
+
+    <!-- 2. Kisten-Auswahl (erstes Formularfeld) -->
+    <section class="section" id="kiste" aria-labelledby="kiste-title">
+      <div class="wrap">
+        <h2 id="kiste-title" class="section__title">Welche Kiste darf es sein?</h2>
+        <fieldset class="boxes" aria-describedby="kiste-error">
+          <legend class="sr-only">Kiste wählen</legend>
+
+          <label class="box">
+            <input type="radio" name="kiste" value="Regionalkiste" required>
+            <span class="box__card">
+              <!-- TODO: Bild vom Kunden (Regionalkiste). Mit scripts/bilder-holen.sh vorläufig von der Website übernehmen -->
+              <img class="box__img" src="assets/regionalkiste.webp" width="640" height="480" alt="Regionalkiste mit saisonalem Bio-Gemüse" loading="lazy" decoding="async">
+              <span class="box__body">
+                <span class="box__name">Regionalkiste</span>
+                <!-- TODO: Inhalt und Menge vom Kunden bestätigen lassen -->
+                <span class="box__text">Nur Gemüse der aktuellen Saison, von unserem Bioland-Hof und Partnerhöfen aus der Region.</span>
+                <span class="box__price"><strong data-preis>30 €</strong> pro Kiste, 6. Kiste gratis</span>
+              </span>
+              <span class="box__check" aria-hidden="true"></span>
+            </span>
+          </label>
+
+          <label class="box">
+            <input type="radio" name="kiste" value="Mixkiste">
+            <span class="box__card">
+              <!-- TODO: Bild vom Kunden (Mixkiste mit Obst). Mit scripts/bilder-holen.sh vorläufig von der Website übernehmen -->
+              <img class="box__img" src="assets/mixkiste.webp" width="640" height="480" alt="Mixkiste mit Bio-Gemüse und Obst" loading="lazy" decoding="async">
+              <span class="box__body">
+                <span class="box__name">Mixkiste</span>
+                <!-- TODO: Inhalt und Menge vom Kunden bestätigen lassen -->
+                <span class="box__text">Regionales Gemüse plus Obst. Äpfel aus der Region, Orangen und Co. aus Südeuropa.</span>
+                <span class="box__price"><strong data-preis>30 €</strong> pro Kiste, 6. Kiste gratis</span>
+              </span>
+              <span class="box__check" aria-hidden="true"></span>
+            </span>
+          </label>
+        </fieldset>
+        <p class="field-error" id="kiste-error" data-error-for="kiste" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- 3. Vertrauensblock -->
+    <section class="section section--cream" aria-label="Warum Söth's Biokiste">
+      <div class="wrap">
+        <ul class="trust">
+          <li class="trust__item">
+            <span class="trust__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M17 8C8 10 5.9 16.2 3.8 21.3l1.9.7.9-2.3c.5.2 1 .3 1.4.3C19 20 22 3 22 3c-1 2-8 2.3-13 3.3S2 11.5 2 13.5 3.8 17.3 3.8 17.3C7 8 17 8 17 8Z"/></svg>
+            </span>
+            <span><strong>Eigener Bioland-Hof in Nordfriesland</strong><br>Mit eigenem Anbau, unsere Kartoffeln sind sogar prämiert.</span>
+          </li>
+          <li class="trust__item">
+            <span class="trust__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12 21.4 10.6 20C5.4 15.4 2 12.3 2 8.5 2 5.4 4.4 3 7.5 3c1.7 0 3.4.8 4.5 2.1C13.1 3.8 14.8 3 16.5 3 19.6 3 22 5.4 22 8.5c0 3.8-3.4 6.9-8.6 11.5L12 21.4Z"/></svg>
+            </span>
+            <span><strong>Familienbetrieb seit über 30 Jahren</strong><br>Ware bevorzugt von Partnerhöfen aus der Region.</span>
+          </li>
+          <li class="trust__item">
+            <span class="trust__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M3 4h11v10h1.5l2-4H21l1 1v5h-1.5a2.5 2.5 0 0 1-5 0h-6a2.5 2.5 0 0 1-5 0H3V4Zm4.5 13.2a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4Zm10.5 0a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4Z"/></svg>
+            </span>
+            <span><strong>Jede Woche frisch bis an deine Haustür</strong><br>Saisonal, regional, ohne Umwege.</span>
+          </li>
+        </ul>
+        <!-- TODO: Bild vom Kunden (Hof oder Team). Mit scripts/bilder-holen.sh vorläufig von der Website übernehmen -->
+        <img class="trust__img" src="assets/hof.webp" width="720" height="408" alt="Das Team von Söth's Biokiste" loading="lazy" decoding="async">
+        <p class="trust__note">Bio-zertifiziert, Öko-Kontrollstelle DE-ÖKO-006</p>
+      </div>
+    </section>
+
+    <!-- 4. Formular -->
+    <section class="section" id="formular" aria-labelledby="formular-title">
+      <div class="wrap">
+        <h2 id="formular-title" class="section__title">Wohin dürfen wir liefern?</h2>
+
+        <!-- Honeypot: für Menschen unsichtbar, Bots füllen es aus -->
+        <div class="hp" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="vorname">Vorname</label>
+            <input id="vorname" name="vorname" type="text" autocomplete="given-name" autocapitalize="words" required aria-describedby="vorname-error">
+            <p class="field-error" id="vorname-error" data-error-for="vorname" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="nachname">Nachname</label>
+            <input id="nachname" name="nachname" type="text" autocomplete="family-name" autocapitalize="words" required aria-describedby="nachname-error">
+            <p class="field-error" id="nachname-error" data-error-for="nachname" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">E-Mail</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" required aria-describedby="email-error">
+          <p class="field-error" id="email-error" data-error-for="email" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="telefon">Telefon</label>
+          <input id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="telefon-hint telefon-error">
+          <p class="field-hint" id="telefon-hint">Für Rückfragen zur Lieferung.</p>
+          <p class="field-error" id="telefon-error" data-error-for="telefon" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="strasse">Straße und Hausnummer</label>
+          <input id="strasse" name="strasse" type="text" autocomplete="address-line1" required aria-describedby="strasse-error">
+          <p class="field-error" id="strasse-error" data-error-for="strasse" aria-live="polite"></p>
+        </div>
+
+        <div class="grid-plz">
+          <div class="field">
+            <label for="plz">PLZ</label>
+            <!-- Phase 2: PLZ-Prüfung auf Liefergebiet, siehe pruefePlz() in main.js -->
+            <input id="plz" name="plz" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5" pattern="[0-9]{5}" required aria-describedby="plz-error">
+            <p class="field-error" id="plz-error" data-error-for="plz" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="ort">Ort</label>
+            <input id="ort" name="ort" type="text" autocomplete="address-level2" required aria-describedby="ort-error">
+            <p class="field-error" id="ort-error" data-error-for="ort" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="lieferhinweis">Hinweis zur Lieferung <span class="optional">(optional)</span></label>
+          <textarea id="lieferhinweis" name="lieferhinweis" rows="2" maxlength="500" placeholder="z. B. Kiste bitte an der Garage abstellen"></textarea>
+        </div>
+
+        <!-- Zahlungsart. Neue Option (z. B. PayPal-Abo, Phase 2): Radio hier ergänzen,
+             passendes Panel mit data-payment-panel anlegen und in ZAHLUNGSARTEN (main.js + submit.js) eintragen. -->
+        <fieldset class="field payment" aria-describedby="zahlungsart-error">
+          <legend>Wie möchtest du zahlen?</legend>
+          <div class="payment__options">
+            <label class="choice">
+              <input type="radio" name="zahlungsart" value="sepa" required>
+              <span>SEPA-Lastschrift</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="zahlungsart" value="rechnung">
+              <span>Rechnung</span>
+            </label>
+          </div>
+          <p class="field-error" id="zahlungsart-error" data-error-for="zahlungsart" aria-live="polite"></p>
+          <p class="field-hint">Du zahlst erst bei jeder Lieferung, nichts im Voraus.</p>
+
+          <div class="payment__panel" data-payment-panel="sepa" hidden>
+            <div class="field">
+              <label for="kontoinhaber">Kontoinhaber</label>
+              <input id="kontoinhaber" name="kontoinhaber" type="text" autocomplete="name" aria-describedby="kontoinhaber-error">
+              <p class="field-error" id="kontoinhaber-error" data-error-for="kontoinhaber" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="iban">IBAN</label>
+              <input id="iban" name="iban" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="DE00 0000 0000 0000 0000 00" maxlength="42" aria-describedby="iban-error">
+              <p class="field-error" id="iban-error" data-error-for="iban" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label class="check">
+                <input type="checkbox" name="sepa_mandat" value="ja" aria-describedby="sepa-text sepa_mandat-error">
+                <span>Ich erteile das SEPA-Lastschriftmandat.</span>
+              </label>
+              <!-- TODO: Gläubiger-ID und finalen Mandatstext vom Kunden einsetzen -->
+              <p class="mandate" id="sepa-text">
+                Ich ermächtige Söth's Biokiste (Gläubiger-ID: DE00ZZZ00000000000), Zahlungen von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die von Söth's Biokiste auf mein Konto gezogenen Lastschriften einzulösen. Die Mandatsreferenz wird dir separat mitgeteilt. Hinweis: Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.
+              </p>
+              <p class="field-error" id="sepa_mandat-error" data-error-for="sepa_mandat" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="payment__panel" data-payment-panel="rechnung" hidden>
+            <!-- TODO: Zahlungsziel für Rechnung vom Kunden bestätigen -->
+            <p class="field-hint">Du bekommst mit jeder Lieferung eine Rechnung.</p>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label class="check">
+            <input type="checkbox" name="agb" value="ja" required aria-describedby="agb-error">
+            <span>Ich akzeptiere die <a href="https://soeths-biokiste.de/shop/service/agb/" target="_blank" rel="noopener">AGB</a> und habe die <a href="https://soeths-biokiste.de/shop/service/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen.</span>
+          </label>
+          <p class="field-error" id="agb-error" data-error-for="agb" aria-live="polite"></p>
+        </div>
+
+        <div class="summary" aria-live="polite">
+          <p class="summary__line"><span>Deine Kiste</span><strong data-summary-kiste>noch nicht gewählt</strong></p>
+          <p class="summary__line"><span>Preis pro Lieferung</span><strong data-preis>30 €</strong></p>
+          <p class="summary__line"><span>Lieferung</span><strong>wöchentlich</strong></p>
+          <p class="summary__line summary__line--hi"><span>6. Kiste</span><strong>gratis</strong></p>
+        </div>
+
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+
+        <!-- "Zahlungspflichtig bestellen" wegen Button-Lösung (§ 312j BGB) -->
+        <button type="submit" class="btn btn--primary btn--block btn--lg" id="submit-btn">Zahlungspflichtig bestellen</button>
+        <!-- TODO: Widerrufsbelehrung vom Kunden prüfen lassen und ggf. verlinken -->
+        <p class="field-hint center">Abgerechnet wird jede Kiste erst bei Lieferung.</p>
+      </div>
+    </section>
+  </form>
+
+  <!-- 5. Mini-FAQ -->
+  <section class="section section--cream" aria-labelledby="faq-title">
+    <div class="wrap">
+      <h2 id="faq-title" class="section__title">Kurz gefragt</h2>
+      <div class="faq">
+        <details>
+          <summary>Wie wird abgerechnet?</summary>
+          <!-- TODO: Antwort vom Kunden bestätigen -->
+          <p>Du zahlst pro Lieferung, nicht im Voraus. Jede Kiste kostet <span data-preis>30 €</span> und wird bei Lieferung abgebucht oder in Rechnung gestellt. Die 6. Kiste kostet dich nichts.</p>
+        </details>
+        <details>
+          <summary>Wann kommt die erste Kiste?</summary>
+          <!-- TODO: Platzhalter, Antwort vom Kunden (Liefertage, Vorlauf) -->
+          <p>Wir melden uns nach deiner Bestellung bei dir und sagen dir, an welchem Tag deine erste Kiste kommt.</p>
+        </details>
+        <details>
+          <summary>Was passiert nach der 6. Kiste?</summary>
+          <!-- TODO: Platzhalter, Antwort vom Kunden (endet automatisch oder läuft weiter?) -->
+          <p>Antwort folgt.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 6. Footer -->
+<footer class="footer">
+  <div class="wrap">
+    <nav aria-label="Rechtliches">
+      <a href="https://soeths-biokiste.de/shop/service/impressum/" target="_blank" rel="noopener">Impressum</a>
+      <a href="https://soeths-biokiste.de/shop/service/datenschutz/" target="_blank" rel="noopener">Datenschutz</a>
+      <a href="https://soeths-biokiste.de/shop/service/agb/" target="_blank" rel="noopener">AGB</a>
+      <button type="button" class="linklike" data-consent-open>Cookie-Einstellungen</button>
+    </nav>
+  </div>
+</footer>
+
+<!-- Sticky-Button (nur mobil) -->
+<a class="sticky-cta btn btn--primary" href="#kiste" id="sticky-cta">Jetzt bestellen</a>
+
+<!-- Cookie-Banner -->
+<div class="consent" id="consent" role="dialog" aria-labelledby="consent-title" aria-live="polite" hidden>
+  <div class="consent__inner">
+    <p class="consent__title" id="consent-title">Darf Meta mitmessen?</p>
+    <p class="consent__text">Mit deiner Zustimmung nutzen wir das Meta Pixel, um zu sehen, welche Werbung funktioniert. Ohne Zustimmung bleibt alles aus. Mehr in der <a href="https://soeths-biokiste.de/shop/service/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a>.</p>
+    <div class="consent__actions">
+      <button type="button" class="btn btn--consent" data-consent="denied">Ablehnen</button>
+      <button type="button" class="btn btn--consent" data-consent="granted">Akzeptieren</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
